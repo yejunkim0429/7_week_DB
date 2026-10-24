@@ -25,3 +25,15 @@ INSERT INTO book(title, author, price, category)
 VALUES ('Cloud Computing', 'Jung', 35000, 'Cloud');
 
 SELECT * FROM book;
+
+SELECT title, author, price FROM book;
+SELECT * FROM book WHERE price >= 30000;
+SELECT * FROM book WHERE category = 'programming';
+
+UPDATE book SET price = 35000 WHERE id = 1;
+SELECT * FROM book WHERE id = 1;
+
+SELECT * FROM book WHERE id = 2;
+DELETE FROM book WHERE id = 2;
+SELECT * FROM book;
+
