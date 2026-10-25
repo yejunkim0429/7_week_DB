@@ -1,3 +1,4 @@
+-- 1. Book Sample Practice
 CREATE TABLE book (
 
     id BIGINT AUTO_INCREMENT PRIMARY KEY,
@@ -37,7 +38,7 @@ SELECT * FROM book WHERE id = 2;
 DELETE FROM book WHERE id = 2;
 SELECT * FROM book;
 
--- ----------- table -----------------
+-- 2. Product Table Creation
 
 CREATE TABLE product (
 
@@ -50,7 +51,7 @@ created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
 );
 DESCRIBE product;
 
--- ------------- order ---------------
+-- 3. Orders Table Creation
 
 CREATE TABLE orders ( 
 order_id BIGINT AUTO_INCREMENT PRIMARY KEY,
@@ -61,7 +62,7 @@ order_date TIMESTAMP DEFAULT CURRENT_TIMESTAMP
 );
 DESCRIBE orders;
 
--- ------------- insert ---------------
+-- 4. Insert
 
 INSERT INTO product(name, price, category, stock)
 VALUES ('mouse', 25000, 'phone', 15);
@@ -104,3 +105,35 @@ INSERT INTO orders(product_id, customer_name, quantity)
 VALUES (5, 'Park', 1);
 SELECT * FROM orders;
 
+-- 5. Select
+SELECT * FROM product;
+
+SELECT name, price FROM product;
+
+SELECT * FROM product WHERE price >= 30000;
+
+SELECT * FROM product WHERE category = 'phone';
+
+SELECT * FROM product WHERE product_id = 1;
+
+SELECT * FROM orders WHERE product_id = 1;
+
+-- 6. Update
+
+UPDATE product SET price = 28000 WHERE product_id = 1;
+SELECT product_id, name, price FROM product WHERE product_id = 1;
+
+UPDATE product SET stock = 20 WHERE product_id = 1;
+SELECT product_id, name, stock FROM product WHERE product_id = 1;
+
+UPDATE orders SET quantity = 4 WHERE order_id = 1;
+SELECT order_id, product_id, customer_name, quantity FROM orders WHERE order_id = 1;
+
+-- 7. Delete
+
+SELECT * FROM orders WHERE product_id = 5;
+DELETE FROM orders WHERE product_id = 5;
+SELECT * FROM orders ORDER BY order_id;
+
+DELETE FROM product WHERE product_id = 5;
+SELECT * FROM product ORDER BY product_id;
